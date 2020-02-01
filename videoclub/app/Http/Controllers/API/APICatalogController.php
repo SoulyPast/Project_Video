@@ -50,24 +50,16 @@ class APICatalogController extends Controller
      */
     public function update(Request $request, $id)
     {
+        
         $movie_columns = array('title', 'year', 'director', 'poster', 'synopsis');
-        
-      /*  for ($i = 0; $i < 5 ; $i++) {
-            if($request->input($movie_columns[$i]) != null)
-            {
-                Movie::where('id', $id)
-                ->update([$movie_columns[$i] => $request->input($movie_columns[$i]),],
-                );
-            }
-        }*/
-        $movie=Movie::findOrFail($id);
-            $movie->title = $request->input('title');
-            $movie->year = $request->input('year');
-            $movie->director = $request->input('director');
-            $movie->poster = $request->input('poster');
-            $movie->synopsis = $request->input('synopsis');
-            $movie->save();
-        
+       
+        for ($i = 0; $i < 5 ; $i++) {
+              
+            Movie::where('id', $id)->update([$movie_columns[$i] => $request->input($movie_columns[$i]),],);
+            
+        }
+      
+    
         return response()->json( Movie::findOrFail( $id ), 200 );
     }
     /**
