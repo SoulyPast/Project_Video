@@ -31,8 +31,8 @@ Route::group(['middleware' => 'auth.basic.once'], function () {
         'catalog' => 'id'
     ]);
 
-    Route::put('catalog/{id}/rent', 'API\APICatalogController@putRent');
-    Route::put('catalog/{id}/return', 'API\APICatalogController@putReturn');
+    Route::put('v1/catalog/{id}/rent', 'API\APICatalogController@putRent');
+    Route::put('v1/catalog/{id}/return', 'API\APICatalogController@putReturn');
     });
 
 
